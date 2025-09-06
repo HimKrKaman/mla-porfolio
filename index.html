@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhubon Pegu – MLA Jonai</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Bhubon Pegu</div>
+
+      <!-- Accessible hamburger button -->
+      <button
+        id="hamburger"
+        class="hamburger"
+        aria-controls="nav-links"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <img id="hero-image" src="/640px-Bhubon_Pegu.jpg" alt="Bhubon Pegu" />
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 id="hero-heading">Working for a Progressive &amp; United Assam</h1>
+      <p>
+        Bhubon Pegu, MLA from Jonai — committed to development, inclusivity,
+        and empowerment of every citizen in Assam.
+      </p>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section id="news" class="section">
+    <h2>Latest News</h2>
+    <div id="news-container" class="news-container"></div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section about">
+    <h2>About Bhubon Pegu</h2>
+    <p>
+      Bhubon Pegu, age 54, is an Indian politician from Assam currently serving
+      as a Member of the Assam Legislative Assembly (MLA) for the Jonai
+      constituency. He was elected in 2006 and 2016 from Jonai, and joined the
+      Bharatiya Janata Party (BJP) in 2020. He is a three-time Member of the
+      Assam Legislative Assembly and focuses on grassroots development,
+      education, connectivity, and social welfare.
+    </p>
+    <p>
+      With decades of public service and community engagement, Bhubon Pegu
+      continues to work for sustainable economic growth and inclusive policies
+      for Jonai and Assam.
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h2>Contact Bhubon Pegu</h2>
+    <p>
+      Have concerns, suggestions, or want to volunteer for community programs?
+      Reach out and let’s build Assam together.
+    </p>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Bhubon Pegu – MLA Jonai. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
