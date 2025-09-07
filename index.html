@@ -11,7 +11,7 @@
     <nav class="navbar">
       <div class="logo">Bhubon Pegu</div>
 
-      <!-- Accessible hamburger button -->
+      <!-- Hamburger -->
       <button
         id="hamburger"
         class="hamburger"
@@ -19,9 +19,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
       <ul id="nav-links" class="nav-links">
@@ -29,19 +27,19 @@
         <li><a href="#news">News</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="admin.html">Admin</a></li>
+        <li><a href="#complaint">Complaint</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero -->
   <section id="hero" class="hero">
-    <img id="hero-image" src="/640px-Bhubon_Pegu.jpg" alt="Bhubon Pegu" />
+    <img id="hero-image" src="" alt="Bhubon Pegu" />
     <div class="overlay"></div>
     <div class="hero-content">
       <h1 id="hero-heading">Working for a Progressive &amp; United Assam</h1>
       <p>
-        Bhubon Pegu, MLA from Jonai — committed to development, inclusivity,
+        Bhubon Pegu, MLA from Jonai — committed to development, inclusivity
         and empowerment of every citizen in Assam.
       </p>
     </div>
@@ -83,6 +81,22 @@
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Complaint -->
+  <section id="complaint" class="section complaint">
+    <h2>Submit a Complaint</h2>
+    <p>
+      Share issues that need urgent attention in Jonai. Your feedback helps
+      Bhubon Pegu act swiftly for the welfare of the community.
+    </p>
+    <form id="complaint-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="subject" placeholder="Subject" required />
+      <textarea name="message" placeholder="Describe the problem" required></textarea>
+      <button type="submit">Submit Complaint</button>
     </form>
   </section>
 

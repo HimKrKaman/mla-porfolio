@@ -1,7 +1,12 @@
 /* ===== Base ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #222; background: #fff; line-height: 1.6; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #222;
+  background: #fff;
+  line-height: 1.6;
+}
 a { color: inherit; text-decoration: none; }
 
 /* ===== Navbar ===== */
@@ -9,7 +14,6 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
   padding: 0.8rem 1rem;
   background: #003366;
   color: #fff;
@@ -17,33 +21,19 @@ a { color: inherit; text-decoration: none; }
   top: 0;
   z-index: 1200;
 }
-
-/* Logo */
 .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.2px; }
-
-/* Nav links - desktop layout */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-/* Nav anchor styles */
+.nav-links { list-style: none; display: flex; gap: 1rem; align-items: center; }
 .nav-links a {
   padding: 0.45rem 0.6rem;
   border-radius: 6px;
   color: #fff;
   font-weight: 600;
-  transition: background 180ms ease, opacity 180ms;
+  transition: background 180ms ease;
 }
 .nav-links a:hover,
-.nav-links a:focus {
-  background: rgba(255,255,255,0.08);
-  outline: none;
-}
+.nav-links a:focus { background: rgba(255,255,255,0.08); }
 
-/* ===== Hamburger (mobile) ===== */
+/* ===== Hamburger ===== */
 .hamburger {
   display: none;
   width: 40px;
@@ -55,14 +45,23 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: center;
 }
-.hamburger:focus { outline: 2px solid rgba(255,255,255,0.25); border-radius: 6px; }
-
-/* simple 3-bar icon */
-.hamburger .bar { display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; transition: transform 0.2s ease; }
+.hamburger .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  margin: 4px 0;
+  transition: transform 0.2s ease;
+}
 
 /* ===== Hero ===== */
 .hero { position: relative; text-align: center; color: #fff; }
-.hero img { width: 100%; height: 460px; object-fit: cover; display: block; }
+.hero img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
 .overlay { position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.45)); }
 .hero-content {
   position: absolute;
@@ -76,23 +75,27 @@ a { color: inherit; text-decoration: none; }
 .hero-content h1 {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
-  line-height: 1.05;
   background: rgba(0,0,0,0.35);
-  display: inline-block;
   padding: 0.2rem 0.6rem;
   border-radius: 6px;
 }
 .hero-content p {
   font-size: 1rem;
   background: rgba(0,0,0,0.3);
-  display: inline-block;
   padding: 0.2rem 0.6rem;
   border-radius: 6px;
-  margin-top: 0.4rem;
 }
 
 /* ===== Sections ===== */
-.section { padding: 2rem 1rem; max-width: 1000px; margin: 0 auto; }
+.section {
+  min-height: 100vh;
+  padding: 3.5rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .section h2 { text-align: center; margin-bottom: 1rem; font-size: 1.5rem; color: #003366; }
 
 /* ===== News ===== */
@@ -108,53 +111,57 @@ a { color: inherit; text-decoration: none; }
 /* ===== About ===== */
 .about p { margin-bottom: 1rem; text-align: justify; }
 
-/* ===== Contact ===== */
-.contact p { text-align: center; margin-bottom: 1rem; }
-#contact-form { display: grid; gap: 0.6rem; max-width: 560px; margin: 0 auto; }
-#contact-form input, #contact-form textarea {
-  padding: 0.65rem; border: 1px solid #d0d6dd; border-radius: 6px; font-size: 0.95rem;
+/* ===== Forms ===== */
+.contact p, .complaint p { text-align: center; margin-bottom: 1rem; }
+#contact-form, #complaint-form {
+  display: grid;
+  gap: 0.6rem;
+  max-width: 560px;
+  margin: 0 auto;
 }
-#contact-form button {
-  background: #003366; color: #fff; border: none; padding: 0.7rem 0.9rem; border-radius: 6px; cursor: pointer; font-weight: 700;
+#contact-form input, #contact-form textarea,
+#complaint-form input, #complaint-form textarea {
+  padding: 0.65rem;
+  border: 1px solid #d0d6dd;
+  border-radius: 6px;
+  font-size: 0.95rem;
 }
+#contact-form button, #complaint-form button {
+  border: none;
+  padding: 0.7rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+}
+#contact-form button { background: #003366; color: #fff; }
 #contact-form button:hover { background: #0055aa; }
+#complaint-form button { background: #b10000; color: #fff; }
+#complaint-form button:hover { background: #d40000; }
 
 /* ===== Footer ===== */
-footer { text-align: center; padding: 1rem; margin-top: 2rem; background: #003366; color: #fff; }
+footer { text-align: center; padding: 1rem; background: #003366; color: #fff; }
 
-/* ===== Responsive rules ===== */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
-
-  /* Hide desktop nav by default on mobile */
   .nav-links {
     display: none;
     position: absolute;
     top: calc(100% + 6px);
     left: 6px;
     right: 6px;
-    background: rgba(0, 51, 102, 0.96); /* solid dark background for contrast */
+    background: rgba(0, 51, 102, 0.96);
     flex-direction: column;
-    gap: 0;
     padding: 0.6rem 0;
     border-radius: 8px;
     box-shadow: 0 8px 22px rgba(0,0,0,0.25);
   }
-
-  /* When open, the .open class toggles display */
   .nav-links.open { display: flex; }
-
   .nav-links li { width: 100%; }
   .nav-links a { display: block; text-align: center; padding: 0.8rem 1rem; font-size: 1rem; }
-
-  /* Hero smaller text on mobile */
-  .hero img { height: 360px; }
-  .hero-content h1 { font-size: 1.4rem; padding: 0.15rem 0.45rem; }
-  .hero-content p { font-size: 0.95rem; padding: 0.12rem 0.45rem; }
+  .hero-content h1 { font-size: 1.4rem; }
+  .hero-content p { font-size: 0.95rem; }
 }
-
-/* Larger screen tidy-up */
 @media (min-width: 769px) {
-  .hero img { height: 520px; }
   .hero-content h1 { font-size: 2.6rem; }
 }
