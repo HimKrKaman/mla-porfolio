@@ -1,12 +1,10 @@
-// script.js - toggles mobile nav, loads hero + news, closes menu on link click/resize
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("nav-links");
   const navAnchors = navLinks.querySelectorAll("a");
 
-  // Toggle function: add/remove .open and update aria
-  function toggleNav(forceState) {
-    const isOpen = typeof forceState === "boolean" ? forceState : !navLinks.classList.contains("open");
+  function toggleNav(force) {
+    const isOpen = typeof force === "boolean" ? force : !navLinks.classList.contains("open");
     if (isOpen) {
       navLinks.classList.add("open");
       hamburger.setAttribute("aria-expanded", "true");
@@ -21,51 +19,28 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleNav();
   });
 
-  // Close nav when a link is clicked (useful on mobile)
-  navAnchors.forEach(a => {
-    a.addEventListener("click", () => {
-      // if viewport is mobile width, close the menu
-      if (window.innerWidth <= 768) toggleNav(false);
-    });
-  });
+  navAnchors.forEach(a => a.addEventListener("click", () => {
+    if (window.innerWidth <= 768) toggleNav(false);
+  }));
 
-  // Close menu if user clicks outside of nav on small screens
   document.addEventListener("click", (e) => {
     if (window.innerWidth <= 768 && navLinks.classList.contains("open")) {
-      const clickInside = navLinks.contains(e.target) || hamburger.contains(e.target);
-      if (!clickInside) toggleNav(false);
+      if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) toggleNav(false);
     }
   });
 
-  // On resize, ensure nav's state matches desktop/mobile expectation
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
-      // ensure nav visible on desktop
-      navLinks.classList.remove("open");
-      navLinks.style.display = ""; // let CSS handle it
-      hamburger.setAttribute("aria-expanded", "false");
-    } else {
-      // mobile: ensure nav hidden until explicit open
       navLinks.classList.remove("open");
       hamburger.setAttribute("aria-expanded", "false");
     }
   });
 
-  /* -------------------------
-     Load hero & news from localStorage (Admin panel)
-     ------------------------- */
+  /* Load hero/news from localStorage if set by admin panel (demo) */
   const savedHero = JSON.parse(localStorage.getItem("heroData"));
-  if (savedHero && savedHero.heading) {
-    const headingEl = document.getElementById("hero-heading");
-    headingEl.textContent = savedHero.heading;
-  }
-  if (savedHero && savedHero.image) {
-    const imgEl = document.getElementById("hero-image");
-    // security note: we assume admin provides a safe URL relative to site
-    imgEl.src = savedHero.image;
-  }
+  if (savedHero && savedHero.heading) document.getElementById("hero-heading").textContent = savedHero.heading;
+  if (savedHero && savedHero.image) document.getElementById("hero-image").src = savedHero.image;
 
-  // Load news items
   const newsContainer = document.getElementById("news-container");
   const savedNews = JSON.parse(localStorage.getItem("newsItems")) || [];
   if (savedNews.length === 0) {
@@ -81,14 +56,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Simple contact form handling (demo-only)
+  /* Simple demo form handlers */
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+    contactForm.addEventListener("submit", e => {
       e.preventDefault();
-      // demo behaviour: show a friendly message and reset
       alert("Thanks — your message has been recorded (demo).");
       contactForm.reset();
+    });
+  }
+
+  const complaintForm = document.getElementById("complaint-form");
+  if (complaintForm) {
+    complaintForm.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Thanks — your complaint has been recorded (demo).");
+      complaintForm.reset();
     });
   }
 });
